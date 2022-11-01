@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MessageController {
 
-    @Value("${helloworld.message:Property not set}")
+    @Value("${helloworld.message:Property not set from the config server.... awks!}")
     private String message;
 
     @RequestMapping("/message")
