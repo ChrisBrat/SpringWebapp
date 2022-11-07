@@ -1,0 +1,1 @@
+java -Dspring.profiles.active=default -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=9081 -jar target/webapp-*.jar

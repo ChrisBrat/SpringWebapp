@@ -13,14 +13,43 @@ properties:
       resources:
         requests:
           cpu: 1
-          memoryInGb: 1.5
-  - name: webapp-container
+          memoryInGb: 0.5
+  - name: webapp-container-english
     properties:
+      # Remove 
+      environmentVariables: 
+        - name: 'SPRING_PROFILES_ACTIVE'
+          value: 'default'
+        - name: 'SERVER_PORT'
+          value: '8081'
+      # Remove     
       image: acrckb.azurecr.io/webapp:1.0.0
       resources:
         requests:
           cpu: 1
-          memoryInGb: 1.5
+          memoryInGb: 0.5
+  - name: webapp-container-dutch
+    properties:
+      # Remove 
+      environmentVariables: 
+        - name: 'SPRING_PROFILES_ACTIVE'
+          value: 'nl'
+        - name: 'SERVER_PORT'
+          value: '8082' 
+      # Remove     
+      image: acrckb.azurecr.io/webapp:1.0.0
+      resources:
+        requests:
+          cpu: 1
+          memoryInGb: 0.5
+  - name: gateway
+    properties:
+      # Remove     
+      image: acrckb.azurecr.io/gateway:1.0.0
+      resources:
+        requests:
+          cpu: 1
+          memoryInGb: 0.5
       ports:
       - port: 80
       - port: 8080
